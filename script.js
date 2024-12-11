@@ -5,7 +5,7 @@ class ProductProperties {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-            }
+    }
 
     getTotalValue() {
         return this.quantity * this.price;
@@ -15,11 +15,11 @@ class ProductProperties {
         return `Product: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`
     }
 
-    static applyDiscount(products, discount){
-    products.forEach(product => {
+    static applyDiscount(products, discount) {
+        products.forEach(product => {
             product.price -= product.price * discount;
         });
-}
+    }
 }
 
 
@@ -36,13 +36,13 @@ class PerishableProductProperties extends ProductProperties {
 }
 
 class PropertiesInventory {
-    constructor(inventory){
+    constructor(inventory) {
         this.inventory = inventory;
     }
 
     addProduct(product) {
         this.inventory.push(product);
-        }
+    }
 
     getInventoryValue() {
         let totalValue = 0;
@@ -54,7 +54,10 @@ class PropertiesInventory {
 
     findProductByName(name) {
         const object = this.inventory.find(product => product.name === name);
-        return object;
+        if (object === undefined) { 
+            return null; }
+        else { 
+            return object; }
     }
 }
 
