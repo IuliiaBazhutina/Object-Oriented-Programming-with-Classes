@@ -84,3 +84,5 @@ ProductProperties.applyDiscount(inventory2.inventory, 0.15);
 console.log(inventory2);
 let totalValue2 = inventory2.getInventoryValue();
 console.log(`Inventory value after discount: ${totalValue2}`);
+
+console.log(inventory2.findProductByName('Salt 1kg'));
