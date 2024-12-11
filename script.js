@@ -1,9 +1,11 @@
 class ProductProperties {
+    static classProperties;
+
     constructor(name, price, quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-    }
+            }
 
     getTotalValue() {
         return this.quantity * this.price;
@@ -17,6 +19,18 @@ class ProductProperties {
         products.forEach(product => {
             this.price = this.price * (1 - discount);
         });
+    }
+
+    addProduct(product) {
+        classProperties.push(product);
+        }
+
+    getInventoryValue() {
+        let totalValue = 0;
+        classProperties.forEach(product => {
+            totalValue += product.price * product.quantity;
+        })
+        return totalValue;
     }
 }
 
@@ -38,8 +52,7 @@ console.log(milk.toString());
 const cream = new PerishableProductProperties("Cream 0.5L", 3.5, 50, "2025-01-31");
 console.log(cream.toString());
 
-let classProperties = [milk, cream];
+ProductProperties.classProperties = [milk, cream];
 
-function addProduct(product) {
-classProperties.push(product);
-}
+
+
