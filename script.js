@@ -17,7 +17,7 @@ class ProductProperties {
 
     static applyDiscount(products, discount){
         products.forEach(product => {
-            this.price = this.price * (1 - discount);
+            product.price = product.price * (1 - discount);
         });
     }
 
@@ -31,6 +31,11 @@ class ProductProperties {
             totalValue += product.price * product.quantity;
         })
         return totalValue;
+    }
+
+    findProductByName(name) {
+        const object = classProperties.find(product => product.name === name);
+        return object;
     }
 }
 
@@ -53,6 +58,3 @@ const cream = new PerishableProductProperties("Cream 0.5L", 3.5, 50, "2025-01-31
 console.log(cream.toString());
 
 ProductProperties.classProperties = [milk, cream];
-
-
-
