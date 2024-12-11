@@ -38,3 +38,4 @@ console.log(milk.toString());
 const cream = new PerishableProductProperties("Cream 0.5L", 3.5, 50, "2025-01-31");
 console.log(cream.toString());
 
+let ClassProperties = [milk, cream];
