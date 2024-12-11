@@ -61,3 +61,4 @@ ProductProperties.classProperties = [milk, cream];
 
 const eggs = new PerishableProductPropertiesroductProperties("Eggs 1dozen", 4.5, 120, "2024-12-25");
 const butter = new PerishableProductPropertiesroductProperties("Butter 250gr", 8, 90, "2025-01-15");
+const salt = new ProductProperties ("Salt 1kg", 3.25, 200);
