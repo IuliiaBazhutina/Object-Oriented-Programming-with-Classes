@@ -52,7 +52,7 @@ class PropertiesInventory {
         return totalValue;
     }
 
-    static findProductByName(name) {
+    findProductByName(name) {
         const object = this.inventory.find(product => product.name === name);
         return object;
     }
@@ -76,7 +76,11 @@ const flour = new ProductProperties("Flour 1kg", 4.75, 125);
 const inventory2 = new PropertiesInventory([eggs, butter, salt, sugar, flour]);
 
 console.log(inventory2);
+let totalValue1 = inventory2.getInventoryValue();
+console.log(`Inventory value before discount: ${totalValue1}`);
 
 ProductProperties.applyDiscount(inventory2.inventory, 0.15);
 
 console.log(inventory2);
+let totalValue2 = inventory2.getInventoryValue();
+console.log(`Inventory value after discount: ${totalValue2}`);
