@@ -1,6 +1,5 @@
 class ProductProperties {
-    static classProperties = [];
-
+    
     constructor(name, price, quantity) {
         this.name = name;
         this.price = price;
@@ -61,14 +60,28 @@ class PropertiesInventory {
     }
 }
 
+// PART 1
+
+console.log("\nPart1")
+
+const honey = new ProductProperties("Honey 1L", 10, 50);
+console.log(honey.toString());
+console.log(`Total value: ${honey.getTotalValue()}`);
+
+// PART 2
+
+console.log("\nPart2")
+
 const milk = new PerishableProductProperties("Milk 1L", 5.5, 100, "2024-12-31");
 console.log(milk.toString());
 const cream = new PerishableProductProperties("Cream 0.5L", 3.5, 50, "2025-01-31");
 console.log(cream.toString());
 
-const inventory1 = new PropertiesInventory([milk, cream]);
+// PART 5
 
-// console.log(inventory1)
+console.log("\nPart5")
+
+// 5 products
 
 const eggs = new PerishableProductProperties("Eggs 1dozen", 4.5, 120, "2024-12-25");
 const butter = new PerishableProductProperties("Butter 250gr", 8, 90, "2025-01-15");
@@ -76,16 +89,35 @@ const salt = new ProductProperties("Salt 1kg", 3.25, 200);
 const sugar = new ProductProperties("Sugar 1kg", 4.25, 150);
 const flour = new ProductProperties("Flour 1kg", 4.75, 125);
 
-const inventory2 = new PropertiesInventory([eggs, butter, salt, sugar, flour]);
+// 5 objects are added to the inventory
 
-console.log(inventory2);
-let totalValue1 = inventory2.getInventoryValue();
-console.log(`Inventory value before discount: ${totalValue1}`);
+const inventory1 = new PropertiesInventory([eggs, butter, salt, sugar, flour]);
 
-ProductProperties.applyDiscount(inventory2.inventory, 0.15);
+// print inventory before discount
+inventory1.inventory.forEach(product => {
+    console.log(product.toString());
+});
 
-console.log(inventory2);
-let totalValue2 = inventory2.getInventoryValue();
-console.log(`Inventory value after discount: ${totalValue2}`);
 
-console.log(inventory2.findProductByName('Salt 1kg'));
+// print total value of th einventory before discount
+
+let totalValue1 = inventory1.getInventoryValue();
+console.log(`Inventory value before discount: ${totalValue1}\n`);
+
+// apply discount 15%
+
+ProductProperties.applyDiscount(inventory1.inventory, 0.15);
+
+// print inventory after discount
+inventory1.inventory.forEach(product => {
+    console.log(product.toString());
+});
+
+// print total value of th einventory after discount
+
+let totalValue2 = inventory1.getInventoryValue();
+console.log(`Inventory value after discount: ${totalValue2}\n`);
+
+// find and print detail of a product by its name
+
+console.log(inventory1.findProductByName('Salt 1kg'));
