@@ -16,10 +16,10 @@ class ProductProperties {
     }
 
     static applyDiscount(products, discount){
-        products.forEach(product => {
-            product.price = product.price * (1 - discount);
+    products.forEach(product => {
+            product.price -= product.price * discount;
         });
-    }
+}
 }
 
 
@@ -63,19 +63,20 @@ console.log(milk.toString());
 const cream = new PerishableProductProperties("Cream 0.5L", 3.5, 50, "2025-01-31");
 console.log(cream.toString());
 
-ProductProperties.classProperties.push(milk);
-ProductProperties.classProperties.push(cream); 
+const inventory1 = new PropertiesInventory([milk, cream]);
+
+// console.log(inventory1)
 
 const eggs = new PerishableProductProperties("Eggs 1dozen", 4.5, 120, "2024-12-25");
 const butter = new PerishableProductProperties("Butter 250gr", 8, 90, "2025-01-15");
-const salt = new ProductProperties ("Salt 1kg", 3.25, 200);
+const salt = new ProductProperties("Salt 1kg", 3.25, 200);
 const sugar = new ProductProperties("Sugar 1kg", 4.25, 150);
 const flour = new ProductProperties("Flour 1kg", 4.75, 125);
 
-ProductProperties.addProduct(eggs);
-ProductProperties.addProduct(butter);
-ProductProperties.addProduct(salt);
-ProductProperties.addProduct(sugar);
-ProductProperties.addProduct(flour);
+const inventory2 = new PropertiesInventory([eggs, butter, salt, sugar, flour]);
 
-console.log(ProductProperties.classProperties);
+console.log(inventory2);
+
+ProductProperties.applyDiscount(inventory2.inventory, 0.15);
+
+console.log(inventory2);
