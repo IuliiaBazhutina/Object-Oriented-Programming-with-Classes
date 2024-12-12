@@ -120,4 +120,5 @@ console.log(`Inventory value after discount: ${totalValue2}\n`);
 
 // find and print detail of a product by its name
 
-console.log(inventory1.findProductByName('Salt 1kg'));
+console.log("Product found by its name:")
+console.log(inventory1.findProductByName('Salt 1kg').toString());
