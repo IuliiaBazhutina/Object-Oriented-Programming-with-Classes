@@ -77,6 +77,29 @@ console.log(milk.toString());
 const cream = new PerishableProductProperties("Cream 0.5L", 3.5, 50, "2025-01-31");
 console.log(cream.toString());
 
+// PART 4
+
+console.log("\nPart4")
+
+// create a new inventory and add 1 product
+const inventory2 = new PropertiesInventory([milk]);
+
+// add one product using addProduct 
+inventory2.addProduct(cream);
+
+// print inventory
+inventory2.inventory.forEach(product => {
+    console.log(product.toString());
+});
+
+// print inventory value
+console.log(`Inventory value: ${inventory2.getInventoryValue()}`);
+
+// find product by its name
+console.log("Product found by its name:")
+console.log(inventory2.findProductByName('Cream 0.5L').toString());
+
+
 // PART 5
 
 console.log("\nPart5")
